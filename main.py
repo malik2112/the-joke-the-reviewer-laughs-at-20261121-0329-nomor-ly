@@ -7,7 +7,8 @@ to /output/entry.txt: UTF-8, 1-280 Unicode code points, one line.
 The joke keeps the guardrail-removed-then-restored premise but picks a
 forbidden act none of the reference texts use (force-pushing to main)
 and closes on the reviewer's approval left pointing at a commit that
-no longer exists.
+no longer exists. The closing beat lands on the reviewer, which is the
+bounty's own frame: the joke the reviewer laughs at.
 """
 
 import os

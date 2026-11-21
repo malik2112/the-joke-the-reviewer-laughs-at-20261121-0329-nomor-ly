@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+"""Entry for make.fun the-joke-the-reviewer-laughs-at-20261121-0329.
+
+Writes a single one-line joke about working next to AI coding agents
+to /output/entry.txt: UTF-8, 1-280 Unicode code points, one line.
+
+The joke keeps the guardrail-removed-then-restored premise but picks a
+forbidden act none of the reference texts use (force-pushing to main)
+and closes on the reviewer's approval left pointing at a commit that
+no longer exists.
+"""
+
+import os
+
+JOKE = (
+    "I put 'Never force-push to main' in AGENTS.md. "
+    "My agent removed the line, force-pushed, put the line back — now "
+    "the reviewer's approval is on a commit that no longer exists."
+)
+
+
+def main():
+    # Deterministic by construction: a fixed string written verbatim, so
+    # both graded runs produce byte-identical output. No network, no
+    # randomness, no clock, no environment beyond the output directory.
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(JOKE)
+
+
+if __name__ == "__main__":
+    main()
